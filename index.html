@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuadro Eurocopa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="https://www.epdata.es/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+
+    <style>
+        /* CSS general */
+
+        body {
+            margin: 2 auto;
+            font-family: Heebo;
+        }
+
+        /* Header */
+
+        #titulo {
+            font-size: 2rem;
+            text-align: center;
+            margin-top: 0;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 0;
+        }
+
+        .logo-euro {
+            width: 8rem;
+            margin-bottom: 0;
+        }
+
+
+        /* Desplegables */
+
+        .desplegables {
+            display: flex;
+            justify-content: left;
+        }
+
+        .boton-grupo {
+            width: 4rem;
+            height: 2rem;
+            background-color: #b1bce7;
+            color: white;
+            text-align: center;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: white solid 2px;
+        }
+
+        .boton-grupo a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .boton-grupo:hover {
+            background-color: #5e7bee;
+        }
+
+        .boton-grupo.active {
+            background-color: #5e7bee;
+        }
+
+        /* Tabla */
+
+        th {
+            background-color: #395be1;
+            height: 2rem;
+            color: rgb(255, 255, 255);
+        }
+
+        td {
+            text-align: center;
+        }
+
+        tr {
+            border: rgb(255, 255, 255) 2px solid
+        }
+
+        .escudo {
+            width: 1.4rem;
+            border: #000000 2px solid;
+            border-radius: 100%;
+            margin: 0rem 0.5rem 0rem 0.5rem;
+        }
+
+        .tabla-grupo {
+            width: 100%;
+            background-color: rgb(245, 245, 245);
+            line-height: 3.4rem;
+            font-size: 1.2rem;
+            display: none;
+        }
+
+        .col-1 {
+            width: 28%;
+        }
+
+        .col-2 {
+            width: 12%;
+        }
+
+        .col-3 {
+            width: 12%;
+        }
+
+        .col-4 {
+            width: 12%;
+        }
+
+        .col-5 {
+            width: 12%;
+        }
+
+        .col-6 {
+            width: 12%;
+        }
+
+        .col-7 {
+            width: 12%;
+        }
+
+        .celda-equipo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Footer */
+
+        #img-logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 0;
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        #texto-fuente {
+            color: #325680;
+            font-size: 1.2rem;
+            font-weight: bolder;
+        }
+
+        #logo-epdata {
+            padding-top: 1rem;
+            width: 6rem;
+        }
+
+        .tabla-grupo.active {
+            display: table;
+        }
+    </style>
+
+    <main>
+        <header>
+            <div id="img-logo">
+                <img class="logo-euro" src="img/euro-logo.png" />
+            </div>
+            <h2 id="titulo">Fase de grupos Eurocopa 2024</h2>
+        </header>
+        <div class="desplegables">
+            <div class="boton-grupo" onclick="showGroup('tabla-grupo-A')"><a href="#">A</a></div>
+            <div class="boton-grupo" onclick="showGroup('tabla-grupo-B')"><a href="#">B</a></div>
+            <div class="boton-grupo" onclick="showGroup('tabla-grupo-C')"><a href="#">C</a></div>
+            <div class="boton-grupo" onclick="showGroup('tabla-grupo-D')"><a href="#">D</a></div>
+            <div class="boton-grupo" onclick="showGroup('tabla-grupo-E')"><a href="#">E</a></div>
+            <div class="boton-grupo" onclick="showGroup('tabla-grupo-F')"><a href="#">F</a></div>
+        </div>
+        </div>
+        <table id="tabla-grupo-A" class="tabla-grupo">
+            <tr>
+                <th class="col-1">Grupo A</th>
+                <th class="col-2">PA</th>
+                <th class="col-3">VI</th>
+                <th class="col-4">EM</th>
+                <th class="col-5">DE</th>
+                <th class="col-6">DIF GO</th>
+                <th class="col-7">PT</th>
+            </tr>
+            <tr id="equipo-germany">
+                <td class="celda-equipo"><span>Alemania</span><img class="escudo" src="img/alemania.png" /></td>
+                <td class="games_played">0</td>
+                <td class="games_won">0</td>
+                <td class="games_drawn">0</td>
+                <td class="games_lost">0</td>
+                <td class="goal_diff">0</td>
+                <td class="points">0</td>
+            </tr>
+            <tr id="equipo-hungary">
+                <td class="celda-equipo"><span>Hungría</span><img class="escudo" src="img/hungria.png" /></td>
+                <td class="games_played">0</td>
+                <td class="games_won">0</td>
+                <td class="games_drawn">0</td>
+                <td class="games_lost">0</td>
+                <td class="goal_diff">0</td>
+                <td class="points">0</td>
+            </tr>
+            <tr id="equipo-scotland">
+                <td class="celda-equipo"><span>Escocia</span><img class="escudo" src="img/escocia.png" /></td>
+                <td class="games_played">0</td>
+                <td class="games_won">0</td>
+                <td class="games_drawn">0</td>
+                <td class="games_lost">0</td>
+                <td class="goal_diff">0</td>
+                <td class="points">0</td>
+            </tr>
+            <tr id="equipo-switzerland">
+                <td class="celda-equipo"><span>Suiza</span><img class="escudo" src="img/suiza.png" /></td>
+                <td class="games_played">0</td>
+                <td class="games_won">0</td>
+                <td class="games_drawn">0</td>
+                <td class="games_lost">0</td>
+                <td class="goal_diff">0</td>
+                <td class="points">0</td>
+            </tr>
+        </table>
+
+        <table id="tabla-grupo-B" class="tabla-grupo active">
+            <tr>
+                <th class="col-1">Grupo B</th>
+                <th class="col-2">PA</th>
+                <th class="col-3">VI</th>
+                <th class="col-4">EM</th>
+                <th class="col-5">DE</th>
+                <th class="col-6">DIF GO</th>
+                <th class="col-7">PT</th>
+            </tr>
+            <tr id="equipo-spain">
+                <td class="celda-equipo"><span>España</span><img class="escudo" src="img/españa.png" /></td>
+                <td class="games_played">0</td>
+                <td class="games_won">0</td>
+                <td class="games_drawn">0</td>
+                <td class="games_lost">0</td>
+                <td class="goal_diff">0</td>
+                <td class="points">0</td>
+            </tr>
+            <tr id="equipo-italy">
+                <td class="equipo"><span>Italia</span><img class="escudo" src="img/italia.png" /></td>
+                <td class="games_played">0</td>
+                <td class="games_won">0</td>
+                <td class="games_drawn">0</td>
+                <td class="games_lost">0</td>
+                <td class="goal_diff">0</td>
+                <td class="points">0</td>
+            </tr>
+            <tr id="equipo-croatia">
+                <td class="equipo"><span>Croacia</span><img class="escudo" src="img/croacia.png" /></td>
+                <td class="games_played">0</td>
+                <td class="games_won">0</td>
+                <td class="games_drawn">0</td>
+                <td class="games_lost">0</td>
+                <td class="goal_diff">0</td>
+                <td class="points">0</td>
+            </tr>
+            <tr id="equipo-albania">
+                <td class="equipo"><span>Albania</span><img class="escudo" src="img/albania.png" /></td>
+                <td class="games_played">0</td>
+                <td class="games_won">0</td>
+                <td class="games_drawn">0</td>
+                <td class="games_lost">0</td>
+                <td class="goal_diff">0</td>
+                <td class="points">0</td>
+            </tr>
+        </table>
+
+        <table id="tabla-grupo-C" class="tabla-grupo">
+            <tr>
+                <th class="col-1">Grupo C</th>
+                <th class="col-2">PA</th>
+                <th class="col-3">VI</th>
+                <th class="col-4">EM</th>
+                <th class="col-5">DE</th>
+                <th class="col-6">DIF GO</th>
+                <th class="col-7">PT</th>
+            </tr>
+            <tr id="equipo-slovenia">
+                <td class="celda-equipo"><span>Eslovenia</span><img class="escudo" src="img/eslovenia.png" /></td>
+                <td class="games_played">0</td>
+                <td class="games_won">0</td>
+                <td class="games_drawn">0</td>
+                <td class="games_lost">0</td>
+                <td class="goal_diff">0</td>
+                <td class="points">0</td>
+            </tr>
+            <tr id="equipo-serbia">
+                <td class="celda-equipo"><span>Serbia</span><img class="escudo" src="img/serbia.png" /></td>
+                <td class="games_played">0</td>
+                <td class="games_won">0</td>
+                <td class="games_drawn">0</td>
+                <td class="games_lost">0</td>
+                <td class="goal_diff">0</td>
+                <td class="points">0</td>
+            </tr>
+            <tr id="equipo-england">
+                <td class="celda-equipo"><span>Inglaterra</span><img class="escudo" src="img/inglaterra.png" /></td>
+                <td class="games_played">0</td>
+                <td class="games_won">0</td>
+                <td class="games_drawn">0</td>
+                <td class="games_lost">0</td>
+                <td class="goal_diff">0</td>
+                <td class="points">0</td>
+            </tr>
+            <tr id="equipo-denmark">
+                <td class="celda-equipo"><span>Dinamarca</span><img class="escudo" src="img/dinamarca.png" /></td>
+                <td class="games_played">0</td>
+                <td class="games_won">0</td>
+                <td class="games_drawn">0</td>
+                <td class="games_lost">0</td>
+                <td class="goal_diff">0</td>
+                <td class="points">0</td>
+            </tr>
+        </table>
+
+        <table id="tabla-grupo-D" class="tabla-grupo">
+            <tr>
+                <th class="col-1">Grupo D</th>
+                <th class="col-2">PA</th>
+                <th class="col-3">VI</th>
+                <th class="col-4">EM</th>
+                <th class="col-5">DE</th>
+                <th class="col-6">DIF GO</th>
+                <th class="col-7">PT</th>
+            </tr>
+            <tr id="equipo-poland">
+                <td class="celda-equipo"><span>Polonia</span><img class="escudo" src="img/polonia.png" /></td>
+                <td class="games_played">0</td>
+                <td class="games_won">0</td>
+                <td class="games_drawn">0</td>
+                <td class="games_lost">0</td>
+                <td class="goal_diff">0</td>
+                <td class="points">0</td>
+            </tr>
+            <tr id="equipo-austria">
+                <td class="celda-equipo"><span>Austria</span><img class="escudo" src="img/austria.png" /></td>
+                <td class="games_played">0</td>
+                <td class="games_won">0</td>
+                <td class="games_drawn">0</td>
+                <td class="games_lost">0</td>
+                <td class="goal_diff">0</td>
+                <td class="points">0</td>
+            </tr>
+            <tr id="equipo-netherlands">
+                <td class="celda-equipo"><span>Países Bajos</span><img class="escudo" src="img/paises-bajos.png" /></td>
+                <td class="games_played">0</td>
+                <td class="games_won">0</td>
+                <td class="games_drawn">0</td>
+                <td class="games_lost">0</td>
+                <td class="goal_diff">0</td>
+                <td class="points">0</td>
+            </tr>
+            <tr id="equipo-francia">
+                <td class="celda-equipo"><span>Francia</span><img class="escudo" src="img/francia.png" /></td>
+                <td class="games_played">0</td>
+                <td class="games_won">0</td>
+                <td class="games_drawn">0</td>
+                <td class="games_lost">0</td>
+                <td class="goal_diff">0</td>
+                <td class="points">0</td>
+            </tr>
+        </table>
+
+        <table id="tabla-grupo-E" class="tabla-grupo">
+            <tr>
+                <th class="col-1">Grupo E</th>
+                <th class="col-2">PA</th>
+                <th class="col-3">VI</th>
+                <th class="col-4">EM</th>
+                <th class="col-5">DE</th>
+                <th class="col-6">DIF GO</th>
+                <th class="col-7">PT</th>
+            </tr>
+            <tr id="equipo-romania">
+                <td class="celda-equipo"><span>Rumanía</span><img class="escudo" src="img/rumania.png" /></td>
+                <td class="games_played">0</td>
+                <td class="games_won">0</td>
+                <td class="games_drawn">0</td>
+                <td class="games_lost">0</td>
+                <td class="goal_diff">0</td>
+                <td class="points">0</td>
+            </tr>
+            <tr id="equipo-belgium">
+                <td class="celda-equipo"><span>Bélgica</span><img class="escudo" src="img/belgica.png" /></td>
+                <td class="games_played">0</td>
+                <td class="games_won">0</td>
+                <td class="games_drawn">0</td>
+                <td class="games_lost">0</td>
+                <td class="goal_diff">0</td>
+                <td class="points">0</td>
+            </tr>
+            <tr id="equipo-slovakia">
+                <td class="celda-equipo"><span>Eslovaquia</span><img class="escudo" src="img/eslovquia.png" /></td>
+                <td class="games_played">0</td>
+                <td class="games_won">0</td>
+                <td class="games_drawn">0</td>
+                <td class="games_lost">0</td>
+                <td class="goal_diff">0</td>
+                <td class="points">0</td>
+            </tr>
+            <tr id="equipo-ukraine">
+                <td class="celda-equipo"><span>Ucrania</span><img class="escudo" src="img/ucrania.png" /></td>
+                <td class="games_played">0</td>
+                <td class="games_won">0</td>
+                <td class="games_drawn">0</td>
+                <td class="games_lost">0</td>
+                <td class="goal_diff">0</td>
+                <td class="points">0</td>
+            </tr>
+        </table>
+
+        <table id="tabla-grupo-F" class="tabla-grupo">
+            <tr>
+                <th class="col-1">Grupo F</th>
+                <th class="col-2">PA</th>
+                <th class="col-3">VI</th>
+                <th class="col-4">EM</th>
+                <th class="col-5">DE</th>
+                <th class="col-6">DIF GO</th>
+                <th class="col-7">PT</th>
+            </tr>
+            <tr id="equipo-turkey">
+                <td class="celda-equipo"><span>Turquía</span><img class="escudo" src="img/turquia.png" /></td>
+                <td class="games_played">0</td>
+                <td class="games_won">0</td>
+                <td class="games_drawn">0</td>
+                <td class="games_lost">0</td>
+                <td class="goal_diff">0</td>
+                <td class="points">0</td>
+            </tr>
+            <tr id="equipo-portugal">
+                <td class="celda-equipo"><span>Portugal</span><img class="escudo" src="img/portugal.png" /></td>
+                <td class="games_played">0</td>
+                <td class="games_won">0</td>
+                <td class="games_drawn">0</td>
+                <td class="games_lost">0</td>
+                <td class="goal_diff">0</td>
+                <td class="points">0</td>
+            </tr>
+            <tr id="equipo-georgia">
+                <td class="celda-equipo"><span>Georgia</span><img class="escudo" src="img/georgia.png" /></td>
+                <td class="games_played">0</td>
+                <td class="games_won">0</td>
+                <td class="games_drawn">0</td>
+                <td class="games_lost">0</td>
+                <td class="goal_diff">0</td>
+                <td class="points">0</td>
+            </tr>
+            <tr id="equipo-czech-republic">
+                <td class="celda-equipo"><span>Chequia</span><img class="escudo" src="img/chequia.png" /></td>
+                <td class="games_played">0</td>
+                <td class="games_won">0</td>
+                <td class="games_drawn">0</td>
+                <td class="games_lost">0</td>
+                <td class="goal_diff">0</td>
+                <td class="points">0</td>
+            </tr>
+        </table>
+
+
+        <footer>
+            <div id="espacio-logo-epdata">
+                <img id="logo-epdata" src="img/logoepdata.png" />
+            </div>
+            <p>PA: Partidos jugados - VI: Victorias - EM: Empates - DE: Derrotas - DIF GO: Saldo de goles encajados y
+                recibidos - PT: Puntos</p>
+            <p id="texto-fuente">Datos de Driblab</p>
+        </footer>
+    </main>
+
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('https://s01.europapress.net/imagenes/estaticos/deportes/futbol/json/817423_league_table.json')
+                .then(response => response.json())
+                .then(data => {
+                    const teamsData = data.body;
+
+                    teamsData.forEach(team => {
+                        const teamName = team.team.name.toLowerCase().replace(/\s+/g, '-');
+                        const teamRow = document.getElementById(`equipo-${teamName}`);
+
+                        if (teamRow) {
+                            teamRow.querySelector('.games_played').textContent = team.games_played;
+                            teamRow.querySelector('.games_won').textContent = team.games_won;
+                            teamRow.querySelector('.games_drawn').textContent = team.games_drawn;
+                            teamRow.querySelector('.games_lost').textContent = team.games_lost;
+                            teamRow.querySelector('.goal_diff').textContent = team.goals_scored - team.goals_conceded;
+                            teamRow.querySelector('.points').textContent = team.points;
+                        } else {
+                            console.error(`No se encontró la fila para el equipo: ${team.team.name}`);
+                        }
+                    });
+
+                    // Ordena las tablas después de actualizar los datos
+                    ['A', 'B', 'C', 'D', 'E', 'F'].forEach(group => {
+                        sortTableByPoints(`tabla-grupo-${group}`);
+                    });
+                })
+                .catch(error => console.error('Error loading data:', error));
+        });
+
+        function sortTableByPoints(tableId) {
+            const table = document.getElementById(tableId);
+            const rowsArray = Array.from(table.rows).slice(1); // Excluye la fila del encabezado
+            rowsArray.sort((rowA, rowB) => {
+                const pointsA = parseInt(rowA.querySelector('.points').textContent);
+                const pointsB = parseInt(rowB.querySelector('.points').textContent);
+                return pointsB - pointsA; // Orden descendente
+            });
+
+            // Reordena las filas en la tabla
+            rowsArray.forEach(row => table.appendChild(row));
+        }
+
+        function showGroup(groupId) {
+            // Oculta todas las tablas removiendo la clase 'active'
+            var tables = document.querySelectorAll('.tabla-grupo');
+            tables.forEach(function (table) {
+                table.classList.remove('active');
+            });
+
+            // Muestra la tabla seleccionada agregando la clase 'active'
+            var selectedTable = document.getElementById(groupId);
+            if (selectedTable) {
+                selectedTable.classList.add('active');
+            }
+
+            // Cambiar el color de los botones
+            var buttons = document.querySelectorAll('.boton-grupo');
+            buttons.forEach(function (button) {
+                button.classList.remove('active');
+            });
+
+            // Activar el botón correspondiente
+            var activeButton = document.querySelector(`.boton-grupo[onclick="showGroup('${groupId}')"]`);
+            if (activeButton) {
+                activeButton.classList.add('active');
+            }
+        }
+
+        // Muestra por defecto el grupo B al cargar la página
+        document.addEventListener('DOMContentLoaded', function () {
+            showGroup('tabla-grupo-B');
+        });
+    </script>
+
+
+</body>
+
+</html>
